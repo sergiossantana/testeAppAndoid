@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sergi.aps1.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:fontFamily="sans-serif"
+        android:gravity="clip_horizontal"
+        android:text="Pessoas"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonAddPessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Pessoa" />
+
+    <Button
+        android:id="@+id/buttonEditPessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar Pessoa"/>
+
+    <Button
+        android:id="@+id/buttonDeletePessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remover Pessoa"/>
+
+    <Button
+        android:id="@+id/buttonViewPessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Cadastrados"/>
+
+
+</LinearLayout>
