@@ -108,14 +108,6 @@ public class Cadastro extends AppCompatActivity  {
 
 
 
-
-        public String formatDate(Date date) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            String hireDate = sdf.format(date);
-            return hireDate;
-        }
-
-
     }
 
 
