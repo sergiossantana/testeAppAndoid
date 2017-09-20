@@ -89,6 +89,7 @@ public class Cadastro extends AppCompatActivity  {
                         Intent i = new Intent(Cadastro.this, MainActivity.class);
                         startActivity(i);
 
+
                     } else {
                         Toast t = Toast.makeText(Cadastro.this, "As senha não são iguais!", Toast.LENGTH_SHORT);
                         t.show();
