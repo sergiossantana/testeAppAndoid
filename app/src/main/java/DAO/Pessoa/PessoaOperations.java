@@ -13,7 +13,7 @@ import java.util.List;
 
 import Model.Pessoa;
 
-class PessoaOperations {
+public class PessoaOperations {
    public static final String LOGTAG = "P_MNGMNT_SYS";
 
    SQLiteOpenHelper dbhandler;
