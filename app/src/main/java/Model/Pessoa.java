@@ -1,8 +1,9 @@
 package Model;
 
 
+import java.io.Serializable;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     private long pessoaId;
     private String nome;
@@ -84,12 +85,9 @@ public class Pessoa {
         this.senha = senha;
     }
 
+    @Override
     public String toString(){
-        return "Codigo: "+getPessoaId()+ "\n" +
-                "Nome: "+getNome() + " " + getSobrenome() + "\n" +
-                "Data de Nascimento: "+getDataNascimento() + "\n" +
-                "Email: "+getEmail();
-
+        return nome;
 
     }
 }

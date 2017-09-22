@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonAddPessoa:
                 startActivity(new Intent(this, Cadastro.class));
                 break;
+            case R.id.buttonViewPessoa:
+                startActivity(new Intent(this, ListaPessoa.class));
+                break;
             default:
                 Toast.makeText(this, "botão errado", Toast.LENGTH_LONG).show();
         }

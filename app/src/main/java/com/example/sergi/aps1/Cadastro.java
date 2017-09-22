@@ -1,7 +1,6 @@
 package com.example.sergi.aps1;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import DAO.Pessoa.PessoaOperations;
+import DAO.Pessoa.PessoaRepositorio;
 import Model.Pessoa;
 
 public class Cadastro extends AppCompatActivity  {
@@ -29,7 +25,7 @@ public class Cadastro extends AppCompatActivity  {
     private EditText edtSenha;
     private EditText edtCfSenha;
     private Button save;
-    private PessoaOperations pessoaOperacao;
+    private PessoaRepositorio pessoaOperacao;
     private String mode;
 
 
@@ -50,8 +46,8 @@ public class Cadastro extends AppCompatActivity  {
         rdSexoM = (RadioButton) findViewById(R.id.rdSexoM);
         rdSexoF = (RadioButton) findViewById(R.id.rdSexoF);
         save = (Button) findViewById(R.id.buttonSavePessoa);
-        pessoaOperacao = new PessoaOperations(this);
-        pessoaOperacao.open();
+        pessoaOperacao = new PessoaRepositorio(this);
+        //pessoaOperacao.open();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -81,10 +77,11 @@ public class Cadastro extends AppCompatActivity  {
                         novaPessoa.setDataNascimento(edtDataNascimento.getText().toString());
 
                         novaPessoa.setSenha(edtSenha.getText().toString());
-                        pessoaOperacao.addPessoa(novaPessoa);
+                        pessoaOperacao.salvar(novaPessoa);
 
                         //employeeData.addEmployee(newEmployee);
-                        Toast t = Toast.makeText(Cadastro.this, novaPessoa.getNome() + "Foi Salvo(a) com SUCESSO! !", Toast.LENGTH_SHORT);
+                        Toast t = Toast.makeText(Cadastro.this, novaPessoa.getPessoaId() + " - " +
+                                novaPessoa.getNome() + " Foi Salvo(a) com SUCESSO! !", Toast.LENGTH_SHORT);
                         t.show();
                         Intent i = new Intent(Cadastro.this, MainActivity.class);
                         startActivity(i);
