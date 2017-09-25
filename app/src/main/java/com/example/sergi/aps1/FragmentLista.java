@@ -2,14 +2,19 @@ package com.example.sergi.aps1;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.List;
 import DAO.Pessoa.PessoaRepositorio;
 import Model.Pessoa;
 
 
-public class FragmentLista extends ListFragment {
+public class FragmentLista extends ListFragment
+        implements AdapterView.OnItemLongClickListener{
     ListView mListView;
     //ArrayAdapter<String> adapter;
     //String[] data = {"Sergio", "Alexandra", "Eduarda", "Paula"};
@@ -40,5 +45,20 @@ public class FragmentLista extends ListFragment {
                 android.R.layout.simple_list_item_activated_1,
                 mPessoas);
         setListAdapter(mAdapter);
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Pessoa novaPessoa = (Pessoa) l.getItemAtPosition(position);
+        String p = novaPessoa.getPessoaId() + " - " + novaPessoa.getNome() + " " +
+                novaPessoa.getSobrenome() + " - " + novaPessoa.getDataNascimento();
+        Toast t = Toast.makeText(FragmentLista.super.getActivity(), p, Toast.LENGTH_SHORT);
+        t.show();
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        return false;
     }
 }
