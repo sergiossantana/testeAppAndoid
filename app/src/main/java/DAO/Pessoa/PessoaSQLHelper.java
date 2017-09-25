@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class PessoaSQLHelper extends SQLiteOpenHelper {
+    //Variaveis com dados do banco
     private static final String DATABASE_NAME = "pessoaDb";
     private static final int DATABASE_VERSION = 1;
 
@@ -25,6 +26,7 @@ public class PessoaSQLHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION );
     }
 
+    //Cria o banco de dados
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase){
         sqLiteDatabase.execSQL(

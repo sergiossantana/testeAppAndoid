@@ -21,6 +21,7 @@ public class PessoaRepositorio {
         helper = new PessoaSQLHelper(ctx);
     }
 
+    //Insere dados no banco
     private long inserir(Pessoa pessoa){
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -39,6 +40,7 @@ public class PessoaRepositorio {
         return id;
     }
 
+    //Upadate de dados no banco
     private int atualizar(Pessoa pessoa){
         SQLiteDatabase db = helper.getWritableDatabase();
 
@@ -59,6 +61,7 @@ public class PessoaRepositorio {
         return linhasAfetadas;
     }
 
+    //Define se insert ou update no banco
     public void salvar(Pessoa pessoa){
         if(pessoa.getPessoaId() == 0){
             inserir(pessoa);
@@ -67,6 +70,7 @@ public class PessoaRepositorio {
         }
     }
 
+    //Exclui dados do banco
     public int excluir(Pessoa pessoa){
         SQLiteDatabase db = helper.getWritableDatabase();
         int linhasAfetadas = db.delete(PessoaSQLHelper.TABLE_PESSOA,
@@ -76,6 +80,7 @@ public class PessoaRepositorio {
         return linhasAfetadas;
     }
 
+    //Efetua busca por nome se não informado parametro retorna todo o banco
     public List<Pessoa> buscarPessoa(String filtro){
         SQLiteDatabase db = helper.getReadableDatabase();
 
