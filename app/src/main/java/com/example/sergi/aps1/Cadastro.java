@@ -47,7 +47,24 @@ public class Cadastro extends AppCompatActivity  {
         rdSexoF = (RadioButton) findViewById(R.id.rdSexoF);
         save = (Button) findViewById(R.id.buttonSavePessoa);
         pessoaOperacao = new PessoaRepositorio(this);
-        //pessoaOperacao.open();
+
+        //Verifica se recebeu algum objeto (editar)
+        Intent it = getIntent();
+        Pessoa pessoa = it.getParcelableExtra("pessoa");
+        if(pessoa !=null){
+            edtNome.setText(pessoa.getNome());
+            edtSobrenome.setText(pessoa.getSobrenome());
+            edtEmail.setText(pessoa.getEmail());
+            edtDataNascimento.setText(pessoa.getDataNascimento());
+            if(pessoa.getSexo().equals("Masculino")){
+                rdSexoM.setChecked(true);
+            }else{
+                rdSexoF.setChecked(true);
+            }
+            edtSenha.setText(novaPessoa.getSenha());
+            novaPessoa.setPessoaId(pessoa.getPessoaId());
+        }
+
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -69,8 +86,10 @@ public class Cadastro extends AppCompatActivity  {
             public void onClick(View v) {
                 try {
                     String senha, senha1;
-
-                    if (edtCfSenha.getText().toString().equals(edtSenha.getText().toString())) {
+                    if(edtSenha.getText().length() < 3){
+                        Toast t = Toast.makeText(Cadastro.this, "Senha deve ter aos menos 4 digitos", Toast.LENGTH_SHORT);
+                        t.show();
+                    }else if (edtCfSenha.getText().toString().equals(edtSenha.getText().toString())) {
                         novaPessoa.setNome(edtNome.getText().toString());
                         novaPessoa.setSobrenome(edtSobrenome.getText().toString());
                         novaPessoa.setEmail(edtEmail.getText().toString());

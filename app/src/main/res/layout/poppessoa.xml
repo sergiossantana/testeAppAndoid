@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvPopLNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/tvPopNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nome"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvPopLNome" />
+
+
+    <TextView
+        android:id="@+id/tvPopLEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvPopLNome"
+        android:layout_marginTop="19dp"
+        android:text="E-mail: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPopEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvPopLEmail"
+        android:layout_toEndOf="@+id/tvPopLEmail"
+        android:text="email"
+        android:textAlignment="viewStart"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvPopLDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvPopLEmail"
+        android:layout_marginTop="21dp"
+        android:text="Data Nascimento: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPopDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nascimento"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/tvPopLDataNascimento"
+        android:layout_alignBottom="@+id/tvPopLDataNascimento"
+        android:layout_toEndOf="@+id/tvPopLDataNascimento" />
+
+    <TextView
+        android:id="@+id/tvPopLSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Sexo: "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/tvPopLDataNascimento"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvPopSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sexo"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/tvPopLSexo"
+        android:layout_alignBottom="@+id/tvPopLSexo"
+        android:layout_toEndOf="@+id/tvPopLSexo" />
+
+    <Button
+        android:id="@+id/bPopFechar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Fechar"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/bPopAlterar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/bPopFechar"
+        android:text="Alterar"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/bPopDeletar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deletar"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/bPopFechar" />
+</RelativeLayout>

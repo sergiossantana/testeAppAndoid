@@ -18,6 +18,9 @@
         </activity>
         <activity android:name=".Cadastro" />
         <activity android:name=".ListaPessoa"></activity>
+        <activity android:name=".PopPessoa"
+            android:theme="@style/AppTheme.CustomTheme"
+            ></activity>
     </application>
 
 </manifest>

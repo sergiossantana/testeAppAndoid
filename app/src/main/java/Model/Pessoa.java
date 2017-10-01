@@ -1,33 +1,57 @@
 package Model;
 
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Pessoa implements Serializable {
+
+public class Pessoa implements Parcelable {
 
     private long pessoaId;
     private String nome;
     private String sobrenome;
     private String email;
-    private String senha;
-    private String sexo;
     private String dataNascimento;
+    private String sexo;
+    private String senha;
+
+    public Pessoa(){};
 
 
-    public Pessoa(long pessoaId, String nome, String sobrenome, String sexo, String dataNascimento, String email, String senha){
+    public Pessoa(long pessoaId, String nome, String sobrenome, String email, String dataNascimento,
+                  String sexo, String senha){
         this.pessoaId = pessoaId;
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.sexo = sexo;
-        this.dataNascimento = dataNascimento;
         this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
         this.senha = senha;
 
     }
 
-    public Pessoa(){
 
+    protected Pessoa(Parcel in) {
+        pessoaId = in.readLong();
+        nome = in.readString();
+        sobrenome = in.readString();
+        email = in.readString();
+        dataNascimento = in.readString();
+        sexo = in.readString();
+        senha = in.readString();
     }
+
+    public static final Creator<Pessoa> CREATOR = new Creator<Pessoa>() {
+        @Override
+        public Pessoa createFromParcel(Parcel in) {
+            return new Pessoa(in);
+        }
+
+        @Override
+        public Pessoa[] newArray(int size) {
+            return new Pessoa[size];
+        }
+    };
 
     public long getPessoaId() {
         return pessoaId;
@@ -53,12 +77,12 @@ public class Pessoa implements Serializable {
         this.sobrenome = sobrenome;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDataNascimento() {
@@ -69,12 +93,12 @@ public class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getSenha() {
@@ -89,5 +113,21 @@ public class Pessoa implements Serializable {
     public String toString(){
         return nome;
 
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(pessoaId);
+        parcel.writeString(nome);
+        parcel.writeString(sobrenome);
+        parcel.writeString(email);
+        parcel.writeString(dataNascimento);
+        parcel.writeString(sexo);
+        parcel.writeString(senha);
     }
 }

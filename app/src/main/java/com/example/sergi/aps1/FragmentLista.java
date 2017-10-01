@@ -1,7 +1,10 @@
 package com.example.sergi.aps1;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,11 +53,19 @@ public class FragmentLista extends ListFragment
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
+
         Pessoa novaPessoa = (Pessoa) l.getItemAtPosition(position);
+        Intent intent = new Intent(FragmentLista.super.getActivity(), PopPessoa.class);
+        intent.putExtra("pessoa", novaPessoa);
+        startActivity(intent);
+
+
+        /*Pessoa novaPessoa = (Pessoa) l.getItemAtPosition(position);
         String p = novaPessoa.getPessoaId() + " - " + novaPessoa.getNome() + " " +
-                novaPessoa.getSobrenome() + " - " + novaPessoa.getDataNascimento();
+                novaPessoa.getSobrenome() + " - " + novaPessoa.getDataNascimento() + " " +
+                novaPessoa.getSexo() + " " + novaPessoa.getEmail();
         Toast t = Toast.makeText(FragmentLista.super.getActivity(), p, Toast.LENGTH_SHORT);
-        t.show();
+        t.show();*/
     }
 
     @Override
