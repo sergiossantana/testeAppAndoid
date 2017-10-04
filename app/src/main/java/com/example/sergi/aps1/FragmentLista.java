@@ -40,6 +40,13 @@ public class FragmentLista extends ListFragment
         Buscar();
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        mRepositorio = new PessoaRepositorio(getActivity());
+        mListView = getListView();
+        Buscar();
+    }
     public void Buscar(){
         mPessoas = mRepositorio.buscarPessoa(null);
        //mListView.setOnItemLongClickListener(this);
